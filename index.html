@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Rakso Web Development</title>
+<meta name="description" content="Tworzymy strony, aplikacje, sklepy i systemy oraz boty i serwery Discord w dużo niższych cenach niż konkurencja.">
+<link rel="icon" href="https://rakso.pages.dev/files-content/rakso_web_dev_loogo.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#f6f7fb;--ink:#14151f;--mute:#6a6d80;--blue:#3b4cff;--peach:#ff8f66;--card:#fff;--line:#e3e5ef;
+--d:'Bricolage Grotesque','Segoe UI',sans-serif;--b:'DM Sans','Segoe UI',sans-serif}
+*{box-sizing:border-box;margin:0}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--ink);font:400 18px/1.6 var(--b);overflow-x:hidden}
+h1,h2,h3{font-family:var(--d);line-height:1.02;letter-spacing:-.03em}
+a{color:inherit;text-decoration:none}
+:focus-visible{outline:3px solid var(--blue);outline-offset:3px}
+
+.btn{position:relative;display:inline-block;overflow:hidden;padding:16px 32px;border-radius:999px;border:2px solid var(--ink);
+font:600 16px var(--b);color:var(--ink);background:transparent;cursor:pointer;z-index:0;transition:color .9s cubic-bezier(.2,.7,.2,1),border-color .9s,transform .5s}
+.btn::before{content:"";position:absolute;inset:-2px;background:linear-gradient(90deg,var(--blue),#7a5cff 60%,var(--peach));
+transform:translateX(-101%);border-radius:inherit;transition:transform .9s cubic-bezier(.2,.7,.2,1);z-index:-1}
+.btn:hover,.btn:focus-visible{color:#fff;border-color:transparent;transform:translateY(-3px)}
+.btn:hover::before,.btn:focus-visible::before{transform:translateX(0)}
+.btn.solid{background:var(--ink);color:#fff}
+.btn.solid::before{transform:translateX(-101%)}
+
+nav{position:fixed;top:0;left:0;right:0;z-index:50;display:flex;align-items:center;justify-content:space-between;padding:14px 5vw;
+background:rgba(246,247,251,.7);backdrop-filter:blur(18px);border-bottom:1px solid transparent;transition:border-color .5s}
+nav.s{border-color:var(--line)}
+nav img{height:34px;display:block}
+nav .links{display:flex;gap:32px;font-size:15px;font-weight:500}
+nav .links a{position:relative;color:var(--mute);transition:color .6s}
+nav .links a::after{content:"";position:absolute;left:0;bottom:-4px;height:2px;width:100%;background:var(--blue);transform:scaleX(0);transform-origin:left;transition:transform .7s cubic-bezier(.2,.7,.2,1)}
+nav .links a:hover{color:var(--ink)}nav .links a:hover::after{transform:scaleX(1)}
+nav .btn{padding:10px 22px;font-size:14px}
+@media(max-width:760px){nav .links{display:none}}
+
+.hero{height:220vh;position:relative}
+.stick{position:sticky;top:0;height:100vh;display:grid;place-items:center;overflow:hidden;text-align:center;padding:0 5vw}
+.blob{position:absolute;border-radius:50%;filter:blur(60px);opacity:.55;will-change:transform}
+.b1{width:46vw;height:46vw;background:#b7bcff;left:-10vw;top:-12vw}
+.b2{width:38vw;height:38vw;background:#ffd0bb;right:-8vw;bottom:-10vw}
+.b3{width:22vw;height:22vw;background:#c6f0ff;right:25vw;top:8vh}
+.hero h1{position:relative;font-size:clamp(46px,9.5vw,150px);font-weight:800;will-change:transform,opacity}
+.hero h1 span{display:inline-block;opacity:0;transform:translateY(60px) rotate(4deg);animation:in 1.1s cubic-bezier(.2,.8,.2,1) forwards}
+@keyframes in{to{opacity:1;transform:none}}
+.hero p{position:relative;max-width:640px;margin:28px auto 36px;color:var(--mute);font-size:clamp(17px,1.6vw,22px);will-change:transform,opacity}
+.hero .cta{position:relative;display:flex;gap:14px;justify-content:center;flex-wrap:wrap;will-change:transform,opacity}
+.scroll{position:absolute;bottom:28px;left:50%;width:24px;height:40px;border:2px solid var(--ink);border-radius:14px;translate:-50% 0}
+.scroll::after{content:"";position:absolute;left:50%;top:7px;width:4px;height:8px;margin-left:-2px;background:var(--ink);border-radius:2px;animation:wheel 1.6s infinite}
+@keyframes wheel{0%{opacity:1;transform:none}100%{opacity:0;transform:translateY(14px)}}
+
+.marq{overflow:hidden;border-block:1px solid var(--line);padding:22px 0;background:#fff}
+.track{display:flex;gap:56px;width:max-content;font:700 28px var(--d);color:#b4b8cc;animation:mq 30s linear infinite}
+.track b{color:var(--ink)}
+@keyframes mq{to{transform:translateX(-50%)}}
+
+.svc{height:600vh;position:relative}
+.svc .stick{text-align:left;place-items:stretch;align-content:center}
+.wrap{display:grid;grid-template-columns:1fr 1fr;gap:6vw;align-items:center;max-width:1200px;margin:auto;width:100%}
+.svc h2{font-size:clamp(34px,4.6vw,64px);margin-bottom:28px}
+.list{list-style:none;padding:0}
+.list li{font:700 clamp(22px,2.6vw,36px) var(--d);padding:10px 0;color:#c3c6d8;transition:color .6s,transform .8s cubic-bezier(.2,.8,.2,1)}
+.list li.on{color:var(--ink);transform:translateX(18px)}
+.panel{position:relative;aspect-ratio:1/1;max-height:70vh;margin:auto;width:100%;border-radius:44px;background:#fff;border:1px solid var(--line);
+box-shadow:0 40px 90px -30px rgba(59,76,255,.35);overflow:hidden;will-change:transform}
+.panel .glow{position:absolute;inset:-30%;background:conic-gradient(from 0deg,#b7bcff,#ffd0bb,#c6f0ff,#b7bcff);filter:blur(50px);opacity:.7;will-change:transform}
+.panel .card{position:absolute;inset:7%;border-radius:32px;background:rgba(255,255,255,.78);backdrop-filter:blur(14px);padding:9%;display:flex;flex-direction:column;justify-content:flex-end}
+.card h3{font-size:clamp(28px,3.4vw,48px);margin-bottom:10px;transition:opacity .4s}
+.card p{color:var(--mute);font-size:17px;transition:opacity .4s}
+.chip{position:absolute;padding:8px 16px;border-radius:999px;background:#fff;font:600 14px var(--b);box-shadow:0 10px 30px -10px rgba(0,0,0,.25);will-change:transform}
+.fade{opacity:0;transform:translateY(12px)}
+@media(max-width:860px){.wrap{grid-template-columns:1fr}.panel{max-height:46vh}.list li{font-size:20px;padding:4px 0}}
+
+.reveal{padding:30vh 5vw;max-width:1100px;margin:auto}
+.reveal p{font:700 clamp(30px,5vw,68px)/1.12 var(--d);letter-spacing:-.03em}
+.reveal .w{color:#cfd2e3;transition:color .35s}
+.reveal .w.l{color:var(--ink)}
+.reveal .w.h.l{color:var(--blue)}
+
+.price{padding:14vh 5vw;max-width:1100px;margin:auto}
+.price h2{font-size:clamp(36px,6vw,84px);margin-bottom:56px}
+.bars{display:grid;gap:22px}
+.bar{display:grid;grid-template-columns:150px 1fr;gap:20px;align-items:center;font-weight:600}
+.bar i{display:block;height:58px;border-radius:999px;width:100%;transform-origin:left;transform:scaleX(var(--s,0));will-change:transform}
+.bar .o{background:repeating-linear-gradient(135deg,#d7d9e6 0 12px,#e6e8f1 12px 24px)}
+.bar .r{background:linear-gradient(90deg,var(--blue),#7a5cff,var(--peach))}
+.price small{display:block;margin-top:18px;color:var(--mute);font-size:14px}
+@media(max-width:600px){.bar{grid-template-columns:1fr;gap:6px}}
+  
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;max-width:1100px;margin:0 auto;padding:0 5vw 14vh}
+.tile{background:var(--card);border:1px solid var(--line);border-radius:30px;padding:36px;min-height:260px;position:relative;overflow:hidden;
+transition:transform .8s cubic-bezier(.2,.8,.2,1),box-shadow .8s;will-change:transform}
+.tile::before{content:"";position:absolute;inset:0;background:linear-gradient(160deg,#eef0ff,#fff0e8);opacity:0;transition:opacity .9s}
+.tile:hover{transform:translateY(-10px);box-shadow:0 30px 60px -28px rgba(59,76,255,.4)}
+.tile:hover::before{opacity:1}
+.tile>*{position:relative}
+.tile h3{font-size:28px;margin-bottom:12px}.tile p{color:var(--mute);font-size:16px}
+.tile .ic{font-size:38px;display:block;margin-bottom:18px;transition:transform .9s cubic-bezier(.2,.8,.2,1)}
+.tile:hover .ic{transform:rotate(-12deg) scale(1.2)}
+@media(max-width:860px){.grid{grid-template-columns:1fr}}
+
+.end{height:200vh;position:relative}
+.end .stick{background:var(--ink);color:#fff;border-radius:48px 48px 0 0;will-change:transform}
+.end h2{font-size:clamp(40px,8vw,130px);font-weight:800;will-change:transform,opacity}
+.end p{color:#a9acc2;margin:22px 0 34px}
+.end .btn{border-color:#fff;color:#fff}
+footer{background:var(--ink);color:#8d90a8;text-align:center;padding:30px;font-size:14px}
+footer img{height:28px;filter:brightness(0) invert(1);opacity:.8;margin-bottom:10px}
+
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition-duration:.01s!important}.hero h1 span{opacity:1;transform:none}}
+</style>
+</head>
+<body>
+<nav id="nav">
+  <a href="#"><img src="https://rakso.pages.dev/files-content/logo_rakso_szerokie.svg" alt="Rakso Web Development"></a>
+  <div class="links"><a href="#uslugi">Usługi</a><a href="#ceny">Ceny</a><a href="#kontakt">Kontakt</a></div>
+  <a class="btn" href="#kontakt">Wycena</a>
+</nav>
+
+<header class="hero" id="hero">
+  <div class="stick">
+    <div class="blob b1" data-par="-.25"></div><div class="blob b2" data-par=".3"></div><div class="blob b3" data-par="-.5"></div>
+    <div>
+      <h1 id="h1"><span style="animation-delay:.1s">Strony,</span> <span style="animation-delay:.25s">które</span><br><span style="animation-delay:.4s">kosztują</span> <span style="animation-delay:.55s">mniej.</span></h1>
+      <p id="hp">Tworzymy strony, aplikacje, sklepy i systemy oraz boty i serwery Discord w dużo niższych cenach niż konkurencja.</p>
+      <div class="cta" id="hc"><a class="btn solid" href="#kontakt">Zamów wycenę</a><a class="btn" href="#uslugi">Zobacz, co robimy</a></div>
+    </div>
+    <div class="scroll"></div>
+  </div>
+</header>
+
+<div class="marq" aria-hidden="true"><div class="track" id="track"></div></div>
+
+<section class="svc" id="uslugi">
+  <div class="stick">
+    <div class="wrap">
+      <div>
+        <h2>Robimy wszystko,<br>co działa online.</h2>
+        <ul class="list" id="list"></ul>
+      </div>
+      <div class="panel" id="panel">
+        <div class="glow" id="glow"></div>
+        <div class="chip" style="left:6%;top:9%" data-f="1">szybko</div>
+        <div class="chip" style="right:7%;top:20%" data-f="-1.4">taniej</div>
+        <div class="chip" style="left:12%;bottom:6%" data-f="1.8">na miarę</div>
+        <div class="card"><h3 id="st"></h3><p id="sp"></p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="reveal"><p id="rv">Płacisz za efekt, nie za nadęty cennik agencji. Dostajesz ten sam poziom jakości, nowoczesny kod i wsparcie, tylko znacznie taniej.</p></section>
+
+<section class="price" id="ceny">
+  <h2>Dużo niższe ceny niż konkurencja.</h2>
+  <div class="bars" id="bars">
+    <div class="bar"><span>Typowa agencja</span><i class="o"></i></div>
+    <div class="bar"><span>Rakso</span><i class="r" data-r="0.42"></i></div>
+  </div>
+  <small>Wykres poglądowy. Dokładną cenę poznasz w darmowej wycenie.</small>
+</section>
+
+<section class="grid" id="tiles">
+  <div class="tile"><span class="ic">🌐</span><h3>Strony i sklepy</h3><p>Szybkie, responsywne, gotowe do sprzedaży od pierwszego dnia.</p></div>
+  <div class="tile"><span class="ic">📱</span><h3>Aplikacje i systemy</h3><p>Panele, rezerwacje, CRM. Narzędzia dopasowane do Twojej firmy.</p></div>
+  <div class="tile"><span class="ic">🤖</span><h3>Boty i serwery Discord</h3><p>Moderacja, ekonomia, tickety i pełna konfiguracja Twojej społeczności.</p></div>
+</section>
+
+<section class="end" id="kontakt">
+  <div class="stick" id="endstick">
+    <div>
+      <h2 id="eh">Zróbmy to razem.</h2>
+      <p>Opisz projekt, a wrócimy z wyceną.</p>
+      <a class="btn" href="mailto:kontakt@rakso.pl">Napisz do nas</a>
+    </div>
+  </div>
+</section>
+<footer><img src="https://rakso.pages.dev/files-content/logo_rakso_szerokie.svg" alt="Rakso"><br>© <span id="y"></span> Rakso Web Development</footer>
+
+<script>
+const $=s=>document.querySelector(s),clamp=(v,a=0,b=1)=>Math.min(b,Math.max(a,v));
+const S=[["Strony internetowe","Wizytówki i landing page, które ładują się błyskawicznie i dobrze wyglądają na każdym ekranie."],
+["Aplikacje","Aplikacje webowe i mobilne zaprojektowane pod to, jak naprawdę pracujesz."],
+["Sklepy","Sklepy internetowe z płatnościami, magazynem i panelem, który ogarnie każdy."],
+["Systemy","Własne systemy do zarządzania firmą, klientami i zamówieniami."],
+["Boty Discord","Boty do moderacji, ticketów, ekonomii i wszystkiego, czego potrzebuje Twoja społeczność."],
+["Serwery Discord","Kompletna konfiguracja serwera: role, kanały, automatyzacje i design."]];
+const hues=[0,60,120,200,270,330];
+$('#list').innerHTML=S.map(s=>`<li>${s[0]}</li>`).join('');
+const lis=[...document.querySelectorAll('.list li')];
+$('#track').innerHTML=[...Array(2)].map(()=>'<span><b>HTML</b></span><span>React</span><span><b>Node.js</b></span><span>Discord.js</span><span><b>Sklepy</b></span><span>API</span><span><b>Python</b></span><span>Bazy danych</span>').join('');
+$('#y').textContent=new Date().getFullYear();
+const rv=$('#rv');rv.innerHTML=rv.textContent.split(' ').map(w=>`<span class="w${/ceny|taniej|efekt/i.test(w)?' h':''}">${w}</span>`).join(' ');
+const ws=[...rv.querySelectorAll('.w')];
+const pars=[...document.querySelectorAll('[data-par]')],chips=[...document.querySelectorAll('[data-f]')];
+let cur=-1;
+const prog=(el,off=0)=>{const r=el.getBoundingClientRect();return clamp(-r.top/(r.height-innerHeight))};
+function tick(){
+  const y=scrollY,vh=innerHeight;
+  $('#nav').classList.toggle('s',y>20);
+  const hp=prog($('#hero'));
+  $('#h1').style.transform=`scale(${1+hp*.55}) translateY(${-hp*80}px)`;
+  $('#h1').style.opacity=1-hp*1.6;
+  $('#hp').style.transform=`translateY(${-hp*160}px)`;$('#hp').style.opacity=1-hp*2.4;
+  $('#hc').style.transform=`translateY(${-hp*220}px)`;$('#hc').style.opacity=1-hp*2.8;
+  pars.forEach(b=>b.style.transform=`translateY(${y*b.dataset.par}px) scale(${1+hp*.6})`);
+  const sp=prog($('#uslugi')),i=Math.min(S.length-1,Math.floor(sp*S.length));
+  if(i!==cur){cur=i;lis.forEach((l,k)=>l.classList.toggle('on',k===i));
+    const t=$('#st'),p=$('#sp');t.style.opacity=p.style.opacity=0;
+    setTimeout(()=>{t.textContent=S[i][0];p.textContent=S[i][1];t.style.opacity=p.style.opacity=1},220);}
+  $('#glow').style.transform=`rotate(${sp*540}deg)`;
+  $('#glow').style.filter=`blur(50px) hue-rotate(${sp*300}deg)`;
+  $('#panel').style.transform=`perspective(1200px) rotateY(${(0.5-sp)*26}deg) rotateX(${Math.sin(sp*6.28)*5}deg) scale(${.92+Math.sin(sp*3.14)*.08})`;
+  chips.forEach(c=>c.style.transform=`translateY(${Math.sin(sp*6.28*c.dataset.f)*26}px)`);
+  const r=rv.getBoundingClientRect(),rp=clamp((vh*.85-r.top)/(r.height+vh*.35));
+  ws.forEach((w,k)=>w.classList.toggle('l',k/ws.length<rp*1.15));
+  const b=$('#bars').getBoundingClientRect(),bp=clamp((vh*.9-b.top)/(vh*.55));
+  document.querySelectorAll('.bar i').forEach(e=>e.style.setProperty('--s',bp*(e.dataset.r||1)));
+  document.querySelectorAll('.tile').forEach((t,k)=>{const q=t.getBoundingClientRect(),v=clamp((vh-q.top)/(vh*.6));
+    t.style.opacity=v;t.style.transform=`translateY(${(1-v)*(60+k*30)}px) scale(${.92+v*.08})`});
+  const ep=prog($('.end'));
+  $('#eh').style.transform=`scale(${.6+Math.min(1,ep*2)*.4})`;$('#eh').style.opacity=clamp(ep*3);
+  $('#endstick').style.transform=`translateY(${(1-clamp(ep*4))*8}vh)`;
+}
+addEventListener('scroll',()=>requestAnimationFrame(tick),{passive:true});addEventListener('resize',tick);tick();
+</script>
+</body>
+</html>
