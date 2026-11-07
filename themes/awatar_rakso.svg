@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 2000 2000"><title>Rakso</title><rect width="2000" height="2000" fill="#FFE9C9"/><g transform="translate(250,200) scale(0.94)"><g transform="scale(2)">
+<defs>
+<linearGradient id="rk-body" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#C2610F"/><stop offset="1" stop-color="#A9480C"/></linearGradient>
+<linearGradient id="rk-head" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#B8560F"/><stop offset="1" stop-color="#9C440C"/></linearGradient>
+<linearGradient id="rk-earL" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#8A400E"/><stop offset="1" stop-color="#6F3009"/></linearGradient>
+<linearGradient id="rk-earR" x1="1" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#9A4710"/><stop offset="1" stop-color="#7A360A"/></linearGradient>
+<radialGradient id="rk-cream" cx="0.45" cy="0.35" r="0.8"><stop offset="0" stop-color="#FFF4D6"/><stop offset="1" stop-color="#F6E2B3"/></radialGradient>
+<clipPath id="rk-headclip"><path id="rk-headpath" d="M372 15C270 15 195 70 188 180C184 270 205 350 232 392C300 428 445 428 515 392C545 345 565 250 560 180C553 70 475 15 372 15Z"/></clipPath>
+</defs>
+<g transform="translate(14,14)" stroke-linejoin="round" stroke-linecap="round">
+ <!-- outer silhouette outline -->
+ <g fill="#000" stroke="#000" stroke-width="26">
+  <ellipse cx="112" cy="228" rx="100" ry="166" transform="rotate(10 112 228)"/>
+  <ellipse cx="640" cy="228" rx="100" ry="166" transform="rotate(-10 640 228)"/>
+  <path d="M238 372C165 480 102 600 88 690C84 735 110 760 170 765L580 765C640 760 665 735 660 690C646 600 580 480 510 372Z"/>
+  <path d="M372 15C270 15 195 70 188 180C184 270 205 350 232 392C300 428 445 428 515 392C545 345 565 250 560 180C553 70 475 15 372 15Z"/>
+ </g>
+ <!-- ears -->
+ <ellipse cx="112" cy="228" rx="100" ry="166" transform="rotate(10 112 228)" fill="url(#rk-earL)" stroke="#000" stroke-width="12"/>
+ <ellipse cx="108" cy="236" rx="62" ry="118" transform="rotate(10 108 236)" fill="#000" opacity=".10" stroke="none"/>
+ <ellipse cx="640" cy="228" rx="100" ry="166" transform="rotate(-10 640 228)" fill="url(#rk-earR)" stroke="#000" stroke-width="12"/>
+ <ellipse cx="644" cy="236" rx="62" ry="118" transform="rotate(-10 644 236)" fill="#000" opacity=".10" stroke="none"/>
+ <!-- body -->
+ <path d="M238 372C165 480 102 600 88 690C84 735 110 760 170 765L580 765C640 760 665 735 660 690C646 600 580 480 510 372Z" fill="url(#rk-body)" stroke="#000" stroke-width="12"/>
+ <ellipse cx="372" cy="598" rx="146" ry="152" fill="url(#rk-cream)"/>
+ <!-- head -->
+ <path d="M372 15C270 15 195 70 188 180C184 270 205 350 232 392C300 428 445 428 515 392C545 345 565 250 560 180C553 70 475 15 372 15Z" fill="url(#rk-head)" stroke="#000" stroke-width="12"/>
+ <g clip-path="url(#rk-headclip)"><path d="M180 0L392 0C370 70 398 125 378 195C352 238 280 252 180 232Z" fill="#7C3509" opacity=".55"/></g>
+ <!-- muzzle -->
+ <path d="M372 178C310 178 268 205 268 262C268 332 292 388 334 418L410 418C452 388 478 332 478 262C478 205 434 178 372 178Z" fill="url(#rk-cream)"/>
+ <!-- collar -->
+ <path d="M198 392Q372 436 550 392L556 436Q372 484 194 436Z" fill="#E84848"/>
+ <path d="M198 392Q372 436 550 392" fill="none" stroke="#F26A6A" stroke-width="5"/>
+ <circle cx="372" cy="452" r="25" fill="#F9CE2E"/>
+ <circle cx="372" cy="452" r="12" fill="#D9A21B"/>
+ <!-- eyes -->
+ <circle cx="292" cy="152" r="43" fill="#151A2B"/>
+ <circle cx="283" cy="139" r="13" fill="#fff"/><circle cx="302" cy="170" r="5.5" fill="#fff"/>
+ <circle cx="452" cy="152" r="43" fill="#151A2B"/>
+ <circle cx="443" cy="139" r="13" fill="#fff"/><circle cx="462" cy="170" r="5.5" fill="#fff"/>
+ <path d="M428 98Q464 78 500 100" fill="none" stroke="#C9772A" stroke-width="6"/>
+ <!-- nose + mouth -->
+ <ellipse cx="372" cy="227" rx="37" ry="23" fill="#151A2B"/>
+ <ellipse cx="372" cy="218" rx="19" ry="7.5" fill="#5D6578"/>
+ <path d="M372 260V306" stroke="#151A2B" stroke-width="7" fill="none"/>
+ <path d="M326 328Q332 364 372 352Q412 364 418 328" stroke="#151A2B" stroke-width="7" fill="none"/>
+ <path d="M352 349Q372 343 392 349Q389 381 372 383Q355 381 352 349Z" fill="#EA5A70"/>
+ <path d="M372 352V372" stroke="#C93D56" stroke-width="3" fill="none"/>
+</g>
+</g></g></svg>
